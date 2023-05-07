@@ -2,30 +2,312 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>super tytul sdasd</title>
+    <title>Logika matematyczna</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/icon.ico">
+    <link rel="icon" type="image/x-icon" href="images/icon.png">
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+
 </head>
 <body>
+    <noscript>
+        <div class="no-js hcenter">
+            Enable JavaScript!
+        </div>
+    </noscript>
+
     <div class="menu">
 
-        <div class="tabs hcenter">
-            <a class="active" href="#">Strona główna</a>
-            <a href="#tutorial">Poradnik</a>
-            <a href="#">musze cos wymyslic</a>
-            <a href="#">tutaj tez</a>
+        <div class="header hcenter" onclick="location.href='#';">
+            Logika matematyczna
         </div>
 
-        
-        <div class="header hcenter" onclick="location.href='#';">
-            Sprawdź, czy wyrażenie!
+        <div class="tabs hcenter">
+            <a href="#zdania-logiczne">Zdania logiczne</a>
+            <a href="#spojniki-logiczne">Spójniki logiczne</a>
+            <a href="#tautologie">Tautologie</a>
+            <a href="#source-code" class="right">Kod źródłowy</a>
         </div>
 
     </div>
     <div class="menu-gradient"></div>
 
-    <div class="footer hcenter">
-        ta super strona zrobiona przez mnie ;)
+    <div class="content">
+        Logika matematyczna to dział matematyki, dzięki któremu możemy sprawdzić czy jakieś zdanie jest prawdziwe czy fałszywe.
+
+        <br><br>
+
+        <div id="zdania-logiczne">
+            <h2>Zdania logiczne</h2>
+            W logice matematycznej każde zdanie może być prawdziwe lub fałszywe. Zdania prawdziwe oznacza się <span class="example">1</span>, a fałszywe <span class="example">0</span>.
+            <ol>
+                <li>
+                    <h4>Zdania proste - przykłady:</h4>
+                    <ul>
+                        <li><span class="example">Liczba 6 jest mniejsza od 9.</span> - zdanie prawdziwe</li>
+                        <li><span class="example">Liczba 4 jest podzielna przez 20.</span> - zdanie fałszywe</li>
+                        <li><span class="example">Liczba 1 jest jedynym rozwiązaniem równania x<span class="sup">2</span> + 2x - 3 = 0</span> - zdanie fałszywe</li>
+                        <li><span class="example">Liczba 2 jest rozwiązaniem równania x + 1 = 3</span> - zdanie prawdziwe</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Zdania złożone:</h4>
+                    Zdania złożone budujemy ze zdań prostych i <a href="#spojniki-logiczne">spójników</a>. Przykłady:
+                    <ul>
+                        <li><span class="example">Liczba 6 jest mniejsza od 9 i liczba 4 jest podzielna przez 20.</span> - zdanie fałszywe</li>
+                        <li><span class="example">Liczba 5 jest liczbą parzystą i liczba 13 jest liczbą pierwszą</span> - zdanie fałszywe</li>
+                        <li><span class="example">Rozwiązaniem równania x<span class="sup">2</span> + 2x - 3 = 0 jest liczba 1 lub liczba -3</span> - zdanie prawdziwe</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <br>
+
+        <div id="spojniki-logiczne">
+            <h2>Spójniki logiczne <span class="note"><br>(Kliknij, aby rozwinąć)</span></h2>
+
+            <ol>
+                <li>
+                    <button type="button" class="collapsible"><h4>Koniunkcja - <span class="example">∧</span></h4></button>
+                    <div class="coll-content">
+                        Koniunkcja dwóch zdań <span class="example">p</span> i <span class="example">q</span> jest prawdziwa tylko wtedy, gdy oba zdania są prawdziwe. Jest to odpowiednik spójnika <span class="example">i</span>.
+                        <br>
+                        Poniższa tabelka przestawia wszystkie możliwe przypadki.
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>q</th>
+                                <th>p ∧ q</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                        Przykłady:
+                        <ul>
+                            <li><span class="example">Liczba 6 jest mniejsza od 9 i liczba 4 jest podzielna przez 20.</span> - zdanie fałszywe</li>
+                            <li><span class="example">Liczba 5 jest liczbą nieparzystą i liczba 13 jest liczbą pierwszą.</span> - zdanie prawdziwe</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="collapsible"><h4>Alternatywa - <span class="example">∨</span></h4></button>
+                    <div class="coll-content">
+                        Alternatywa dwóch zdań <span class="example">p</span> i <span class="example">q</span> jest prawdziwa tylko wtedy, gdy przynajmniej jedno ze zdań jest prawdziwe. Jest to odpowiednik spójnika <span class="example">lub</span>.
+                        <br>
+                        Poniższa tabelka przestawia wszystkie możliwe przypadki.
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>q</th>
+                                <th>p ∧ q</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                        Przykłady:
+                        <ul>
+                            <li><span class="example">Liczba 6 jest mniejsza od 9 lub liczba 4 jest podzielna przez 20.</span> - zdanie prawdziwe</li>
+                            <li><span class="example">Liczba 5 jest liczbą parzystą lub liczba 14 jest liczbą pierwszą.</span> - zdanie fałszywe</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="collapsible"><h4>Implikacja - <span class="example">⇒</span></h4></button>
+                    <div class="coll-content">
+                        Implikacja dwóch zdań <span class="example">p</span> i <span class="example">q</span> jest fałszywa tylko wtedy, gdy zdanie <span class="example">p</span> jest prawdziwe, a zdanie <span class="example">q</span> jest fałszywe. Innymi słowami z prawdy może wynikać tylko prawda, a z fałszu może wynikać wszystko.
+                        <br>
+                        Poniższa tabelka przestawia wszystkie możliwe przypadki.
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>q</th>
+                                <th>p ∧ q</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                        Przykłady:
+                        <ul>
+                            <li><span class="example">Jeżeli 2 + 2 = 4, to 2 - 2 = 0</span> - zdanie prawdziwe</li>
+                            <li><span class="example">Jeżeli liczba 6 jest liczbą parzystą to liczba 62 jest ujemna</span> - zdanie fałszywe</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="collapsible"><h4>Równoważność - <span class="example">⇔</span></h4></button>
+                    <div class="coll-content">
+                        Równoważność dwóch zdań <span class="example">p</span> i <span class="example">q</span> jest prawdziwa tylko wtedy, gdy oba zdania mają tą samą wartość logiczną.
+                        <br>
+                        Poniższa tabelka przestawia wszystkie możliwe przypadki.
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>q</th>
+                                <th>p ∧ q</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                        Przykłady:
+                        <ul>
+                            <li><span class="example">2 + 1 = 3 ⇔ 3 + 1 = 4</span> - zdanie prawdziwe</li>
+                            <li><span class="example">2 + 1 = 3 ⇔ 3 = -3</span> - zdanie fałszywe</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="collapsible"><h4>Negacja - <span class="example">∼</span></h4></button>
+                    <div class="coll-content">
+                        Negacja zmienia wartość logiczną zdania <span class="example">p</span> na przeciwną.
+                        <br>
+                        Poniższa tabelka przestawia wszystkie możliwe przypadki.
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>∼ p</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                        Przykłady:
+                        <ul>
+                            <li><span class="example">∼ (1 + 1 = 3)</span> - zdanie prawdziwe</li>
+                            <li><span class="example">∼ (1 + 2 = 3)</span> - zdanie fałszywe</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="collapsible"><h4>Alternatywa rozłączna (XOR) - <span class="example">⊕</span></h4></button>
+                    <div class="coll-content">
+                        XOR dwóch zdań <span class="example">p</span> i <span class="example">q</span> jest prawdziwy tylko wtedy, gdy zdania mają przeciwne wartości logiczne.
+                        <br>
+                        Poniższa tabelka przestawia wszystkie możliwe przypadki.
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>q</th>
+                                <th>p ∧ q</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                        Przykłady:
+                        <ul>
+                            <li><span class="example">Jeżeli 2 + 2 = 4, to 2 - 2 = 0</span> - zdanie prawdziwe</li>
+                            <li><span class="example">Jeżeli liczba 6 jest liczbą parzystą to liczba 62 jest ujemna</span> - zdanie fałszywe</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+        </div>
     </div>
+    
+
+
+    <div class="footer hcenter">
+        Dzięki za odwiedzenie :)
+        <b>|</b>
+        Mateusz F. 1i 
+    </div>
+        
 </body>
+
+<script src="script.js"></script>
+
 </html>

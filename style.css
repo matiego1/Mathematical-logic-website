@@ -1,6 +1,8 @@
-body {
+body, button {
+    font-family: JetBrains Mono;
     background-color: #e5fdfb;
     margin: 0px;
+    font-size: 16px;
 }
 
 .hcenter {
@@ -9,11 +11,11 @@ body {
 }
 
 .menu {
-    background: url("images/photo.jpg") center no-repeat;
+    background: url("images/background.png") center no-repeat;
     background-size: cover;
 
     padding-top: 20px;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
 
 }
 
@@ -22,12 +24,13 @@ body {
     border-radius: 15px;
     padding: 20px 50px;
     
-    font-size: 80px;
+    font-size: max(25px, 5vw);
 
     background-color: #cbfffc;
 
     width: fit-content;
-    margin-top: 100px;
+    margin-top: 30px;
+    margin-bottom: 100px;
 
     cursor: pointer;
 }
@@ -37,10 +40,10 @@ body {
     background-color: #cbfffc;
     width: fit-content;
 
-    border: 2px groove blue;
-    border-radius: 5px;
+    border: 3px groove blue;
+    border-radius: 7px;
 
-    font-size: 15px;
+    font-size: max(16px, 1.5vw);
 }
   
 .tabs a {
@@ -49,13 +52,16 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     color: black;
+    transition: background 0.8s ease;
+
+    border-right: 2px groove blue;
+}
+
+.tabs .right {
+    border-right: 0;
 }
 
 .tabs a:hover {
-    background-color: #95fffa;
-}
-  
-.tabs a.active {
     background-color: #42fff6;
 }
 
@@ -68,10 +74,100 @@ body {
     background-image: linear-gradient(#e5fdfb, #cbfffc);
 
     width: 100%;
-    bottom: 0;
-    position: absolute;
+    position: relative;
     padding-top: 50px;
     height: 30px;
+    bottom: 0;
 
     font-size: 15px;
+}
+
+.example {
+    color: #555555;
+    border: 1px groove #555555;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #cbfffc;
+    width: fit-content;
+    white-space: nowrap;
+    line-height: 1.8;
+}
+
+.content {
+    margin: 10px;
+    line-height: 1.7;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 10px;
+}
+
+.sup {
+    position: relative;
+    bottom: 1ex; 
+    font-size: 80%;
+}
+
+a {
+    text-decoration: underline;
+    text-decoration-color: #555555;
+    text-underline-offset: 3px;
+    color: #555555;
+}
+
+.logic-table {
+    border-collapse: collapse;
+    margin: 5px 0px;
+}
+
+.logic-table tr, th, td {
+    text-align: center;
+    border: 1px solid #555555;
+    padding: 2px 12px;
+}
+
+.logic-table th {
+    background-color: #cbfffc;
+}
+
+.collapsible {
+    cursor: pointer;
+    text-align: center;
+    color: black;
+    border: none;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    transition: 0.2s ease-out;
+}
+
+h4 {
+    margin: 5px 0px;
+}
+
+.collapsible:hover {
+    text-decoration-color: black;
+}
+
+.coll-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.coll-active {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.note {
+    font-size: 50%;
+    color: #555555;
+}
+
+.no-js {
+    background-color: red;
+    height: 10vw;
+    font-size: 8vw;
 }

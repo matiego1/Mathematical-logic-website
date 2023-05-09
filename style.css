@@ -94,7 +94,7 @@ body, button {
 }
 
 .content {
-    margin: 10px;
+    margin: 15px;
     line-height: 1.7;
 }
 
@@ -170,4 +170,8 @@ h4 {
     background-color: red;
     height: 10vw;
     font-size: 8vw;
+}
+
+.lista-tautologii {
+    margin: 0px 10px;
 }

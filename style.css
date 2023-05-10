@@ -1,4 +1,4 @@
-body, button {
+body, button, textarea {
     font-family: JetBrains Mono;
     background-color: #e5fdfb;
     margin: 0px;
@@ -140,6 +140,16 @@ a {
     text-decoration-color: transparent;
     text-underline-offset: 3px;
     transition: 0.2s ease-out;
+    padding-left: 0px;
+}
+
+.collapsible-no-underline {
+    cursor: pointer;
+    text-align: center;
+    color: black;
+    border: none;
+    transition: 0.2s ease-out;
+    padding-left: 0px;
 }
 
 h4 {
@@ -174,4 +184,38 @@ h4 {
 
 .lista-tautologii {
     margin: 0px 10px;
+}
+
+.lista {
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+.input {
+    width: 50%;
+    min-width: 100px;
+    max-width: 50%;
+    height: 30vh;
+    min-height: 30px;
+    max-height: 50vh;
+    background-color: #cbfffc;
+    border: 3px groove #555555;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+.submit {
+    border: 3px groove #555555;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #cbfffc;
+    transition: background 0.8s ease;
+}
+
+.submit:hover {
+    background-color: #42fff6;
+}
+
+.result {
+    display: none;
 }

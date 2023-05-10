@@ -30,7 +30,7 @@
             <a href="#zdania-logiczne">Zdania logiczne</a>
             <a href="#spojniki-logiczne">Spójniki logiczne</a>
             <a href="#tautologie">Tautologie</a>
-            <a href="#source-code" class="right">Kod źródłowy</a>
+            <a href="#sprawdz-zdanie" class="right">Sprawdź zdanie logiczne</a>
         </div>
 
     </div>
@@ -317,7 +317,7 @@
         <div id="tautologie">
             <h2>Tautologie</h2>
             Tautologia (prawo rachunku zdań) to wyrażenie, które niezależnie od wartości logicznych zdań prostych jest zawsze prawdziwe.
-            <br>
+            <br><br>
 
             <h4>Najważniejsze prawa rachunku zdań:</h4>
             <ul class="lista-tautologii">
@@ -334,6 +334,183 @@
                 <li><span class="example">p ⊕ 0 ⇔ p</span></li>
                 <li><span class="example">p ⊕ q ⇔ (p v q) ∧ ~(p ∧ q)</span></li>
             </ul>
+
+            <br>
+
+            <h2>Dowodzenie tautologii<br><span class="note">(Kliknij, aby rozwinąć)</span></h2>
+
+            <ol>
+                <li>
+                    <button type="button" class="collapsible"><h4>Metoda zero-jedynkowa</h4></button>
+                    <div class="coll-content">
+                        Rozważmy następujące zdanie: <span class="example">~ (p ∧ ~p)</span>.
+                        <br>
+                        Aby dowieść, że jest to tautologia tworzymy następującą tabelkę:
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>~p</th>
+                                <th>p ∧ ~p</th>
+                                <th>~ (p ∧ ~p)</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        Następnie stopniowo ją uzupełniamy opierając się na już znanych wartościach:
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>~p</th>
+                                <th>p ∧ ~p</th>
+                                <th>~ (p ∧ ~p)</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        Po uzupełnieniu pierwszej pustej kolumny przechodzimy do następnej
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>~p</th>
+                                <th>p ∧ ~p</th>
+                                <th>~ (p ∧ ~p)</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        Na koniec uzupełniamy ostatnią kolumnę, która odpowiada całemu wyrażeniu
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>~p</th>
+                                <th>p ∧ ~p</th>
+                                <th>~ (p ∧ ~p)</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                        Dla każdej możliwej wartości <span class="example">p</span> całe wyrażenie jest prawdziwe, więc zdanie <span class="example">~ (p ∧ ~p)</span> jest tautologią.
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="collapsible"><h4>Dowód nie wprost</h4></button>
+                    <div class="coll-content">
+                        Dowód nie wprost polega na wykazaniu sprzeczności w tezie przeciwnej do udowadnianej, co pozwala przyjąć, że udowadniana teza jest prawdziwa.
+                        <br>
+                        Innymi słowami w dowodzie nie wprost trzeba wykazać, że <span class="example">~p</span> jest fałszywe, więc teza <span class="example">p</span> jest prawdziwa.
+                        <br><br>
+                        Rozważmy następujące zdanie: <span class="example">p v ~p</span>. Załóżmy, że jest ono fałszywe:
+                        <br>
+                        <span class="example">W[p v ~p] = 0</span>
+                        <br>
+                        Alternatywa zdań <span class="example">p</span> i <span class="example">q</span> jest fałszywa tylko wtedy, gdy oba zdania są fałszywe.
+                        <br>
+                        <span class="example">W[p] = 0 ∧ W[~p] = 0</span>
+                        <br>
+                        Po przekształceniu otrzymujemy:
+                        <br>
+                        <span class="example">W[p] = 0 ∧ W[p] = 1</span>
+                        <br>
+                        Co nie może być prawdą, bo zdanie <span class="example">p</span> nie może być jednocześnie fałszywe i prawdziwe.
+                        <br>
+                        Wykazaliśmy, że zdanie <span class="example">p v ~p</span> nie może być fałszywe, więc jest ono prawdziwe i jest tautologią.
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <!-- #endregion -->
+
+        <br>
+
+        <!-- #region Sprawdź zdanie -->
+
+        <div id="sprawdz-zdanie">
+            <h2>Sprawdź, czy zdanie logiczne jest tautologią</h2>
+            <button type="button" class="collapsible-no-underline">Wpisz w poniższe pole dowolne zdanie logiczne, kliknij przycisk i zobacz, czy jest ono tautologią. (Klinij, aby pokazać dodatkowe zasady)</button>
+            <div class="coll-content">
+                <h4>Obsługiwane spójniki logiczne:</h4>
+                <ul class="lista">
+                    <li>
+                        <a href="#spojniki-logiczne">Negacja</a> - <span class="example">~</span> - neguje pierwszy wyraz po niej (<span class="example">~p v q</span> to <b>NIE</b> to samo co <span class="example">~(p v q)</span>)
+                    </li>
+                    <li>
+                        <a href="#spojniki-logiczne">Koniunkcja</a> - <span class="example">^</span>
+                    </li>
+                    <li>
+                        <a href="#spojniki-logiczne">Alternatywa</a> - <span class="example">v</span>
+                    </li>
+                    <li>
+                        <a href="#spojniki-logiczne">Alternatywa rozłączna (XOR) </a> - <span class="example">+</span>
+                    </li>
+                    <li>
+                        <a href="#spojniki-logiczne">Implikacja</a> - <span class="example">⇒</span> lub <span class="example">=></span>
+                    </li>
+                    <li>
+                        <a href="#spojniki-logiczne">Negacja</a> - <span class="example">⇔</span> lub <span class="example"><=></span>
+                    </li>
+                </ul>
+                Zdanie może także zawierać <span class="example">(</span> i <span class="example">)</span>.
+                <h4>Kolejność działań:</h4>
+                <ul class="lista">
+                    <li>Nawiasy</li>
+                    <li>Negacja (od lewej do prawej)</li>
+                    <li>Wszystkie inne spójniki (od lewej do prawej)</li>
+                </ul>
+                Wyrażenie może zawierać tylko 5 zdań oznaczonych literami <span class="example">p</span>, <span class="example">q</span>, <span class="example">r</span>, <span class="example">s</span> i <span class="example">t</span> oraz nie może być dłuższe niż 500 znaków.
+            </div>
+            
+            <br>
+
+            <textarea id="input" type="text" maxlength="500" class="input" placeholder="Tutaj wpisz twoje zdanie..."></textarea>
+            <br>
+            <button id="check" class="submit">Sprawdź zdanie logiczne!</button>
+            <button id="reset" class="submit">Wyczyść</button>
+
+            <br><br><br>
+
+            <div id="result" class="result"></div>
+
         </div>
 
         <!-- #endregion -->
@@ -344,7 +521,7 @@
     <div class="footer hcenter">
         Dzięki za odwiedzenie :)
         <b>|</b>
-        Mateusz F. 1i 
+        Mateusz F. 1i
     </div>
         
 </body>

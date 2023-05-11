@@ -193,11 +193,10 @@ h4 {
 
 .input {
     width: 50%;
-    min-width: 100px;
-    max-width: 50%;
+    resize: vertical;
     height: 30vh;
-    min-height: 30px;
-    max-height: 50vh;
+    min-height: 30vh;
+    max-height: 80vh;
     background-color: #cbfffc;
     border: 3px groove #555555;
     border-radius: 7px;
@@ -218,4 +217,5 @@ h4 {
 
 .result {
     display: none;
+    
 }

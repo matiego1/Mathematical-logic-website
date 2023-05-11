@@ -9,6 +9,7 @@
 
 </head>
 <body>
+
     <noscript>
         <style>
             .menu, .content, .menu-gradient, .footer {
@@ -502,12 +503,12 @@
             
             <br>
 
-            <textarea id="input" type="text" maxlength="500" class="input" placeholder="Tutaj wpisz twoje zdanie..."></textarea>
+            <textarea id="input" type="text" maxlength="500" class="input" placeholder="Tutaj wpisz twoje zdanie..." oninput="hideResult()"></textarea>
             <br>
             <button id="check" class="submit">Sprawdź zdanie logiczne!</button>
             <button id="reset" class="submit">Wyczyść</button>
 
-            <br><br><br>
+            <br><br>
 
             <div id="result" class="result"></div>
 
@@ -517,6 +518,12 @@
 
     </div>
 
+    <div>
+        TODO: <br>
+        - zawijanie klas example <br>
+        - sprawdzarka
+        - ... nwm może sobie coś jeszcze przypomnę :)
+    </div>
 
     <div class="footer hcenter">
         Dzięki za odwiedzenie :)

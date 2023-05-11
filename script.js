@@ -39,16 +39,33 @@ function hideResult() {
 
 function showResult(text) {
     var div = getResultDiv();
-    div.innerHTML = text;
+    div.innerHTML = "<h4>Wynik:</h4><span class=\"example\">" + text + "</span>";
     div.style.display = "block";
 } 
 
 addButtonClickListener("check", function() {
-    //TODO: sprawdź wynik
-    showResult("Tutaj się pojawi wynik, jak napiszę program do sprawdzania :)")
+    var e = getTextArea().value;
+    if (!isExpressionCorrect(e)) {
+        showResult("Ups! W twoim zdaniu logicznym jest błąd.");
+        return;
+    }
+
+    if (checkIfExpressionIsTautology(e)) {
+        showResult("Twoje wyrażenie jest tautologią :) znaczy narazie każde wyrażenie jest tautologią, bo nie napisałem sprawdzarki :)");
+    } else {
+        showResult("Twoje wyrażenie nie jest tautologią :(");
+    }
 });
 
 addButtonClickListener("reset", function() {
     getTextArea().value = "";
     hideResult();
 });
+
+function isExpressionCorrect(e) {
+    return true; //TODO
+}
+
+function checkIfExpressionIsTautology(e) {
+    return true; //TODO
+}

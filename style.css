@@ -43,9 +43,8 @@ body, button, textarea {
     border: 3px groove blue;
     border-radius: 7px;
 
-    font-size: max(16px, 1.5vw);
 }
-  
+
 .tabs a {
     float: left;
     text-align: center;
@@ -53,7 +52,8 @@ body, button, textarea {
     text-decoration: none;
     color: black;
     transition: background 0.8s ease;
-
+    font-size: max(20px, 1.5vw);
+    
     border-right: 2px groove blue;
 }
 
@@ -217,5 +217,8 @@ h4 {
 
 .result {
     display: none;
-    
+}
+
+@media only screen and (max-width: 930px) {
+    /* todo */
 }

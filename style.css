@@ -36,13 +36,15 @@ body, button, textarea {
 }
 
 .tabs {
+    display: flex;
+    flex-direction: row;
+
     overflow: hidden;
     background-color: #cbfffc;
     width: fit-content;
 
     border: 3px groove blue;
     border-radius: 7px;
-
 }
 
 .tabs a {
@@ -90,6 +92,7 @@ body, button, textarea {
     background-color: #cbfffc;
     width: fit-content;
     white-space: nowrap;
+    overflow: hidden;
     line-height: 1.8;
 }
 
@@ -177,7 +180,6 @@ h4 {
 }
 
 .no-js {
-    background-color: red;
     height: 10vw;
     font-size: 8vw;
 }
@@ -192,7 +194,7 @@ h4 {
 }
 
 .input {
-    width: 50%;
+    width: 60%;
     resize: vertical;
     height: 30vh;
     min-height: 30vh;
@@ -219,6 +221,36 @@ h4 {
     display: none;
 }
 
-@media only screen and (max-width: 930px) {
-    /* todo */
+.too-narrow {
+    height: 10vw;
+    font-size: 8vw;
+    display: none;
+}
+
+@media only screen and (max-width: 950px) {
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tabs a {
+        border-right: 0;
+        border-bottom: 2px groove blue;
+    }
+    
+    .tabs .right {
+        border-bottom: 0;
+    }
+
+    .input {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .menu, .content, .menu-gradient, .footer {
+        display: none;
+    }
+    .too-narrow {
+        display: block;
+    }
 }

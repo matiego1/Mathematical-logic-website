@@ -2,17 +2,19 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logika matematyczna</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="images/icon.png">
-    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains Mono">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
 
     <noscript>
         <style>
-            .menu, .content, .menu-gradient, .footer {
+            .menu, .content, .menu-gradient, .footer, .too-narrow {
                 display: none;
             }
         </style>
@@ -27,8 +29,8 @@
 
     <div class="menu">
 
-        <div class="header hcenter" onclick="location.href='#';">
-            Logika matematyczna
+        <div class="header hcenter" onclick="location.href='';">
+            Logika <br>matematyczna
         </div>
 
         <div class="tabs hcenter">
@@ -43,7 +45,6 @@
 
     <div class="content">
         Logika matematyczna to dział matematyki, dzięki któremu możemy sprawdzić czy jakieś zdanie jest prawdziwe czy fałszywe.
-
         <br><br>
 
         <!-- #region Zdania logiczne -->
@@ -65,9 +66,9 @@
                     <h4>Zdania złożone:</h4>
                     Zdania złożone budujemy ze zdań prostych i <a href="#spojniki-logiczne">spójników</a>. Przykłady:
                     <ul>
+                        <li><span class="example">Rozwiązaniem równania x<span class="sup">2</span> + 2x - 3 = 0 jest liczba 1 lub liczba -3</span> - zdanie prawdziwe</li>
                         <li><span class="example">Liczba 6 jest mniejsza od 9 i liczba 4 jest podzielna przez 20.</span> - zdanie fałszywe</li>
                         <li><span class="example">Liczba 5 jest liczbą parzystą i liczba 13 jest liczbą pierwszą</span> - zdanie fałszywe</li>
-                        <li><span class="example">Rozwiązaniem równania x<span class="sup">2</span> + 2x - 3 = 0 jest liczba 1 lub liczba -3</span> - zdanie prawdziwe</li>
                     </ul>
                 </li>
             </ol>
@@ -160,6 +161,46 @@
                         <ul>
                             <li><span class="example">Liczba 6 jest mniejsza od 9 lub liczba 4 jest podzielna przez 20.</span> - zdanie prawdziwe</li>
                             <li><span class="example">Liczba 5 jest liczbą parzystą lub liczba 14 jest liczbą pierwszą.</span> - zdanie fałszywe</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="collapsible"><h4>Alternatywa rozłączna (XOR) - <span class="example">⊕</span></h4></button>
+                    <div class="coll-content">
+                        XOR dwóch zdań <span class="example">p</span> i <span class="example">q</span> jest prawdziwy tylko wtedy, gdy zdania mają przeciwne wartości logiczne. Jest to odpowiednik spójnika <span class="example">albo</span>.
+                        <br>
+                        Poniższa tabelka przestawia wszystkie możliwe przypadki.
+                        <table class="logic-table">
+                            <tr>
+                                <th>p</th>
+                                <th>q</th>
+                                <th>p ⊕ q</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                        Przykłady:
+                        <ul>
+                            <li><span class="example">2 + 2 = 4 albo 2 - 2 = 1</span> - zdanie prawdziwe</li>
+                            <li><span class="example">liczba 5 jest liczbą parzystą albo liczba 62 jest ujemna</span> - zdanie fałszywe</li>
                         </ul>
                     </div>
                 </li>
@@ -270,46 +311,6 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <button type="button" class="collapsible"><h4>Alternatywa rozłączna (XOR) - <span class="example">⊕</span></h4></button>
-                    <div class="coll-content">
-                        XOR dwóch zdań <span class="example">p</span> i <span class="example">q</span> jest prawdziwy tylko wtedy, gdy zdania mają przeciwne wartości logiczne.
-                        <br>
-                        Poniższa tabelka przestawia wszystkie możliwe przypadki.
-                        <table class="logic-table">
-                            <tr>
-                                <th>p</th>
-                                <th>q</th>
-                                <th>p ⊕ q</th>
-                            </tr>
-                            <tr>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>0</td>
-                            </tr>
-                        </table>
-                        Przykłady:
-                        <ul>
-                            <li><span class="example">2 + 2 = 4 ⊕ 2 - 2 = 1</span> - zdanie prawdziwe</li>
-                            <li><span class="example">liczba 5 jest liczbą parzystą ⊕ liczba 62 jest ujemna</span> - zdanie fałszywe</li>
-                        </ul>
-                    </div>
-                </li>
             </ol>
         </div>
 
@@ -326,18 +327,19 @@
 
             <h4>Najważniejsze prawa rachunku zdań:</h4>
             <ul class="lista-tautologii">
-                <li><span class="example">p v ~p</span></li>
-                <li><span class="example">~ (p ∧ ~p)</span></li>
-                <li><span class="example">p ⇔ ~(~p)</span></li>
-                <li><span class="example">~(p ∧ q) ⇔ (~p v ~q)</span></li>
-                <li><span class="example">~(p v q) ⇔ (~p ∧ ~q)</span></li>
-                <li><span class="example">(p ∧ (p ⇒ q)) ⇒ q</span></li>
-                <li><span class="example">~(p ⇒ q) ⇔ (p ∧ ~q)</span></li>
-                <li><span class="example">(p ∧ (q v r)) ⇔ ((p ∧ q) v (p ∧ r))</span></li>
-                <li><span class="example">(p v (q ∧ r)) ⇔ ((p v q) ∧ (p v r))</span></li>
-                <li><span class="example">p ⊕ p ⇔ 0</span></li>
-                <li><span class="example">p ⊕ 0 ⇔ p</span></li>
-                <li><span class="example">p ⊕ q ⇔ (p v q) ∧ ~(p ∧ q)</span></li>
+                <li>Prawo tożsamości: <span class="example">p ⇒ p</span></li>
+                <li>Prawo podwójnego zaprzeczenia: <span class="example">p ⇔ ~(~p)</span></li>
+                <li>Prawo wyłączonego środka: <span class="example">p v ~p</span></li>
+                <li>Prawo sprzeczności: <span class="example">~ (p ∧ ~p)</span></li>
+                <li>I prawo De Morgana: <span class="example">~(p ∧ q) ⇔ (~p v ~q)</span></li>
+                <li>II prawo De Morgana: <span class="example">~(p v q) ⇔ (~p ∧ ~q)</span></li>
+                <li>Prawo odrywania: <span class="example">(p ∧ (p ⇒ q)) ⇒ q</span></li>
+                <li>Prawo zaprzeczenia implikacji: <span class="example">~(p ⇒ q) ⇔ (p ∧ ~q)</span></li>
+                <li>Prawo rozdzielności koniunkcji względem alternatywy: <span class="example">(p ∧ (q v r)) ⇔ ((p ∧ q) v (p ∧ r))</span></li>
+                <li>Prawo rozdzielności alternatywy względem koniunkcji: <span class="example">(p v (q ∧ r)) ⇔ ((p v q) ∧ (p v r))</span></li>
+                <li><span class="example">(p ⊕ p) ⇔ 0</span></li>
+                <li><span class="example">(p ⊕ 0) ⇔ p</span></li>
+                <li><span class="example">(p ⊕ q) ⇔ ((p v q) ∧ ~(p ∧ q))</span></li>
             </ul>
 
             <br>
@@ -392,7 +394,7 @@
                                 <td></td>
                             </tr>
                         </table>
-                        Po uzupełnieniu pierwszej pustej kolumny przechodzimy do następnej
+                        Po uzupełnieniu pierwszej pustej kolumny przechodzimy do następnej:
                         <table class="logic-table">
                             <tr>
                                 <th>p</th>
@@ -413,7 +415,7 @@
                                 <td></td>
                             </tr>
                         </table>
-                        Na koniec uzupełniamy ostatnią kolumnę, która odpowiada całemu wyrażeniu
+                        Na koniec uzupełniamy ostatnią kolumnę, która odpowiada całemu wyrażeniu:
                         <table class="logic-table">
                             <tr>
                                 <th>p</th>
@@ -442,13 +444,13 @@
                     <div class="coll-content">
                         Dowód nie wprost polega na wykazaniu sprzeczności w tezie przeciwnej do udowadnianej, co pozwala przyjąć, że udowadniana teza jest prawdziwa.
                         <br>
-                        Innymi słowami w dowodzie nie wprost trzeba wykazać, że <span class="example">~p</span> jest fałszywe, więc teza <span class="example">p</span> jest prawdziwa.
+                        Innymi słowami w dowodzie nie wprost trzeba wykazać, że teza <span class="example">~p</span> jest fałszywa, z czego wynika, że teza <span class="example">p</span> jest prawdziwa.
                         <br><br>
                         Rozważmy następujące zdanie: <span class="example">p v ~p</span>. Załóżmy, że jest ono fałszywe:
                         <br>
                         <span class="example">W[p v ~p] = 0</span>
                         <br>
-                        Alternatywa zdań <span class="example">p</span> i <span class="example">q</span> jest fałszywa tylko wtedy, gdy oba zdania są fałszywe.
+                        Alternatywa zdań <span class="example">p</span> i <span class="example">q</span> jest fałszywa tylko wtedy, gdy oba zdania są fałszywe:
                         <br>
                         <span class="example">W[p] = 0 ∧ W[~p] = 0</span>
                         <br>
@@ -473,44 +475,43 @@
         <div id="sprawdz-zdanie">
             <h2>Sprawdź, czy zdanie logiczne jest tautologią</h2>
             Wpisz w poniższe pole dowolne zdanie logiczne, kliknij przycisk i zobacz, czy jest ono tautologią. <br>
-            <button type="button" class="collapsible-no-underline">(Klinij tutaj, aby pokazać dodatkowe zasady)</button>
+            <button type="button" class="collapsible">(Klinij tutaj, aby pokazać dodatkowe zasady)</button>
             <div class="coll-content">
                 <h4>Obsługiwane spójniki logiczne:</h4>
                 <ul class="lista">
                     <li>
-                        <a href="#spojniki-logiczne">Negacja</a> - <span class="example">~</span> - neguje pierwszy wyraz po niej (<span class="example">~p v q</span> to <b>NIE</b> to samo co <span class="example">~(p v q)</span>)
+                        <a href="#spojniki-logiczne">Negacja</a> - <span class="example">~</span> - neguje pierwszy wyraz po niej, <span class="example">~p v q</span> to <b>NIE</b> to samo co <span class="example">~(p v q)</span>
                     </li>
                     <li>
-                        <a href="#spojniki-logiczne">Koniunkcja</a> - <span class="example">^</span>
+                        <a href="#spojniki-logiczne">Koniunkcja</a> - <span class="example">∧</span> lub <span class="example">^</span>
                     </li>
                     <li>
                         <a href="#spojniki-logiczne">Alternatywa</a> - <span class="example">v</span>
                     </li>
                     <li>
-                        <a href="#spojniki-logiczne">Alternatywa rozłączna (XOR) </a> - <span class="example">+</span>
+                        <a href="#spojniki-logiczne">Alternatywa rozłączna (XOR) </a> - <span class="example">⊕</span> lub <span class="example">+</span>
                     </li>
                     <li>
                         <a href="#spojniki-logiczne">Implikacja</a> - <span class="example">⇒</span> lub <span class="example">=></span>
                     </li>
                     <li>
-                        <a href="#spojniki-logiczne">Negacja</a> - <span class="example">⇔</span> lub <span class="example"><=></span>
+                        <a href="#spojniki-logiczne">Równoważność</a> - <span class="example">⇔</span> lub <span class="example"><=></span>
                     </li>
                 </ul>
-                Zdanie może także zawierać <span class="example">(</span> i <span class="example">)</span>.
-                <h4>Kolejność działań:</h4>
-                <ul class="lista">
-                    <li>Nawiasy</li>
-                    <li>Negacja (od lewej do prawej)</li>
-                    <li>Wszystkie inne spójniki (od lewej do prawej)</li>
-                </ul>
-                Wyrażenie może zawierać tylko 5 zdań oznaczonych literami <span class="example">p</span>, <span class="example">q</span>, <span class="example">r</span>, <span class="example">s</span> i <span class="example">t</span> oraz nie może być dłuższe niż 500 znaków.
+            </ul>
+            Zdanie może także zawierać <span class="example">(</span>, <span class="example">)</span>, <span class="example">0</span> oraz <span class="example">1</span>.
+            <h4>Kolejność działań:</h4>
+            <ul class="lista">
+                <li>Nawiasy</li>
+                <li>Negacja (od lewej do prawej)</li>
+                <li>Wszystkie inne spójniki (od lewej do prawej)</li>
+            </ul>
+            Wyrażenie może zawierać tylko 4 zdania proste oznaczonych literami <span class="example">p</span>, <span class="example">q</span>, <span class="example">r</span> i <span class="example">s</span> oraz nie może być dłuższe niż 500 znaków.
             </div>
             
             <br>
 
-            <!-- NIE USUWAJ NOWEJ LINNI Z PLACEHOLDER! placeholder wyświetla ją poprawnie. \n, \A nie działają-->
-            <textarea id="input" type="text" maxlength="500" class="input" placeholder="Tutaj wpisz twoje zdanie...
-(Edytor narazie nie obsługuje 'zmiennych' oraz nie sprawdza poprawności wpisywanego tekstu)")" oninput="hideResult()"></textarea>
+            <textarea id="input" type="text" maxlength="500" class="input" placeholder="Tutaj wpisz twoje zdanie...")" oninput="hideResult()"></textarea>
             <br>
             <button id="check" class="submit">Sprawdź zdanie logiczne!</button>
             <button id="reset" class="submit">Wyczyść</button>
@@ -523,19 +524,12 @@
 
         <!-- #endregion -->
 
-        <div>
-            TODO: <br>
-            <ul>
-            <li>zawijanie klas example</li>
-            <li>sprawdzanie poprawności</li>
-            <li>sprawdzić sprawdzanie tautologii</li>
-            </ul>
-        </div>
-
     </div>
 
     <div class="footer hcenter">
         Dzięki za odwiedzenie :)
+        <b>|</b>
+        <a href="https://github.com/matiego1/" target="_blank" class="fa fa-github github"></a>
         <b>|</b>
         Mateusz F. 1i
     </div>

@@ -3,6 +3,7 @@ body, button, textarea {
     background-color: #e5fdfb;
     margin: 0px;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 .hcenter {
@@ -24,7 +25,7 @@ body, button, textarea {
     border-radius: 15px;
     padding: 20px 50px;
     
-    font-size: max(25px, 5vw);
+    font-size: max(40px, 5vw);
 
     background-color: #cbfffc;
 
@@ -33,6 +34,10 @@ body, button, textarea {
     margin-bottom: 100px;
 
     cursor: pointer;
+}
+
+.header br {
+    display: none;
 }
 
 .tabs {
@@ -55,8 +60,8 @@ body, button, textarea {
     color: black;
     transition: background 0.8s ease;
     font-size: max(20px, 1.5vw);
-    
     border-right: 2px groove blue;
+    cursor: pointer;
 }
 
 .tabs .right {
@@ -84,6 +89,12 @@ body, button, textarea {
     font-size: 15px;
 }
 
+.footer .github {
+    font-size: 120%;
+    color: black;
+    text-decoration: none;
+}
+
 .example {
     color: #555555;
     border: 1px groove #555555;
@@ -91,8 +102,7 @@ body, button, textarea {
     padding: 2px;
     background-color: #cbfffc;
     width: fit-content;
-    white-space: nowrap;
-    overflow: hidden;
+    white-space: break-spaces;
     line-height: 1.8;
 }
 
@@ -117,6 +127,7 @@ a {
     text-decoration-color: #555555;
     text-underline-offset: 3px;
     color: #555555;
+    cursor: pointer;
 }
 
 .logic-table {
@@ -142,15 +153,6 @@ a {
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: 3px;
-    transition: 0.2s ease-out;
-    padding-left: 0px;
-}
-
-.collapsible-no-underline {
-    cursor: pointer;
-    text-align: center;
-    color: black;
-    border: none;
     transition: 0.2s ease-out;
     padding-left: 0px;
 }
@@ -221,6 +223,11 @@ h4 {
     display: none;
 }
 
+.result .note {
+    font-size: 70%;;
+    color: #555555;
+}
+
 .too-narrow {
     height: 10vw;
     font-size: 8vw;
@@ -228,6 +235,18 @@ h4 {
 }
 
 @media only screen and (max-width: 950px) {
+    .menu {
+        padding-bottom: 50px;
+    }
+
+    .header {
+        margin-bottom: 50px;
+    }
+
+    .header br {
+        display: block;
+    }
+
     .tabs {
         flex-direction: column;
     }
@@ -246,7 +265,7 @@ h4 {
     }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 430px) {
     .menu, .content, .menu-gradient, .footer {
         display: none;
     }

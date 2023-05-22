@@ -1,4 +1,21 @@
-// obsługa "collabsible"
+// obsługa linków
+
+// function scrollSlowly(id) {
+//     document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+//     // location.href = "#" + id;
+// }
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// obsługa klas "collabsible"
 
 function addCollClickListener(coll, activeClassName) {
     for (var i = 0; i < coll.length; i++) {
@@ -17,41 +34,17 @@ function addCollClickListener(coll, activeClassName) {
 }
 
 addCollClickListener(document.getElementsByClassName("collapsible"), "coll-active");
-addCollClickListener(document.getElementsByClassName("collapsible-no-underline"), null);
 
 // obsługa sprawdzarki
-
-function getTextArea() {
-    return document.getElementById("input");
-}
-
-function getResultDiv() {
-    return document.getElementById("result");
-}
 
 function addButtonClickListener(id, f) {
     document.getElementById(id).addEventListener("click", f);
 }
 
-function hideResult() {
-    getResultDiv().style.display = "none";
-}
-
-function showResult(text) {
-    var div = getResultDiv();
-    div.innerHTML = "<h4>Wynik:</h4><span class=\"example\">" + text + "</span>";
-    div.style.display = "block";
-} 
-
 addButtonClickListener("check", function() {
-    var e = getTextArea().value;
-    if (!isExpressionCorrect(e)) {
-        showResult("Ups! W twoim zdaniu logicznym jest błąd.");
-        return;
-    }
+    var e = getTextArea().value.replaceAll(new RegExp("\\s","g"), "").replaceAll("<=>", "⇔").replaceAll("=>", "⇒").replaceAll("^", "∧").replaceAll("+", "⊕");
 
     var result = checkIfExpressionIsTautology(e)
-
     if (result === true) {
         showResult("Twoje wyrażenie jest tautologią :)");
     } else if (result === false) {
@@ -66,24 +59,48 @@ addButtonClickListener("reset", function() {
     hideResult();
 });
 
-function isExpressionCorrect(e) {
-    return true; //TODO
+function showResult(text) {
+    var div = getResultDiv();
+    div.innerHTML = "<h4>Wynik:</h4><span class='example'>" + text + "</span><br><span class='note'>Jeśli uważasz, że ten wynik nie jest prawidłowy, proszę o <a href='mailto:matifilip@staszic.waw.pl'>wysłanie</a> zrzutu ekranu. Z góry dziękuję :)</span>";
+    div.style.display = "block";
+    div.scrollIntoView({behavior: "smooth"});
+} 
+
+function hideResult() {
+    getResultDiv().style.display = "none";
 }
+
+function getResultDiv() {
+    return document.getElementById("result");
+}
+
+function getTextArea() {
+    return document.getElementById("input");
+}
+
+// sprawdzanie, czy wyrażenie jest tautologią
 
 function checkIfExpressionIsTautology(e) {
     try {
-        //TODO podstaw wartości pod zmienne
-        return parseExpression(e);
+        return substituteZerosAndOnes(e, "pqrs");
     } catch (err) {
         return "" + err;
     }
 }
 
-function parseExpression(e) {
-    e = e.replaceAll("<=>", "⇔").replaceAll("=>", "⇒").replaceAll(" ", "");
+function substituteZerosAndOnes(e, chars) {
+    if (chars.length == 0) {
+        return parseExpression(e);
+    }
+    if (e.indexOf(chars[0]) == -1) {
+        return substituteZerosAndOnes(e, chars.substring(1));
+    }
+    return substituteZerosAndOnes(e.replaceAll(chars[0], "0"), chars.substring(1)) && substituteZerosAndOnes(e.replaceAll(chars[0], "1"), chars.substring(1));
+}
 
+function parseExpression(e) {
     while (e.length > 1) {
-        poprzedni = e;
+        var poprzedni = e;
 
         e = replaceComplex(e);
 
@@ -101,19 +118,6 @@ function parseExpression(e) {
     throw 3;
 }
 
-function replaceBasics(s) {
-    var pop = s + "x";
-    while (pop != s) {
-        pop = s;
-        s = s.replace("(0)", "(1)");
-        s = s.replace("(1)", "(0)");
-        s = s.replace("~0", "1");
-        s = s.replace("~1", "0");
-    }
-
-    return s;
-}
-
 String.prototype.replaceAt = function(index, replacement) {
     return this.substring(0, index) + replacement + this.substring(index + replacement.length);
 }
@@ -123,12 +127,12 @@ function replaceComplex(e) {
     
     while (pop != e) {
         pop = e;
-    
-        e = replaceBasics(e);
 
+        e = replaceBasics(e);
+        
         for (var i = 1; i < e.length - 1; i++) {
             var akt = e[i - 1] + e[i] + e[i + 1];
-            if (!/(0|1)(\^|v|\+|⇒|⇔)(0|1)/.test(akt)) continue;
+            if (!/(0|1)(∧|v|⊕|⇒|⇔)(0|1)/.test(akt)) continue;
 
             e = e.replaceAt(i - 1, " ").replaceAt(i + 1, " ");
 
@@ -142,22 +146,22 @@ function replaceComplex(e) {
             } else if (akt == "1v1") {
                 e = e.replaceAt(i, "1");
             //koniunkcja
-            } else if (akt == "0^0") {
+            } else if (akt == "0∧0") {
                 e = e.replaceAt(i, "0");
-            } else if (akt == "0^1") {
+            } else if (akt == "0∧1") {
                 e = e.replaceAt(i, "0");
-            } else if (akt == "1^0") {
+            } else if (akt == "1∧0") {
                 e = e.replaceAt(i, "0");
-            } else if (akt == "1^1") {
+            } else if (akt == "1∧1") {
                 e = e.replaceAt(i, "1");
             //xor
-            } else if (akt == "0+0") {
+            } else if (akt == "0⊕0") {
                 e = e.replaceAt(i, "0");
-            } else if (akt == "0+1") {
+            } else if (akt == "0⊕1") {
                 e = e.replaceAt(i, "1");
-            } else if (akt == "1+0") {
+            } else if (akt == "1⊕0") {
                 e = e.replaceAt(i, "1");
-            } else if (akt == "1+1") {
+            } else if (akt == "1⊕1") {
                 e = e.replaceAt(i, "0");
             //implikacja
             } else if (akt == "0⇒0") {
@@ -184,6 +188,20 @@ function replaceComplex(e) {
         }
 
         e = e.replaceAll(" ", "");
+    }
+
+    return e;
+}
+
+function replaceBasics(e) {
+    var pop = e + "x";
+
+    while (pop != e) {
+        pop = e;
+        e = e.replace("(0)", "0");
+        e = e.replace("(1)", "1");
+        e = e.replace("~0", "1");
+        e = e.replace("~1", "0");
     }
 
     return e;

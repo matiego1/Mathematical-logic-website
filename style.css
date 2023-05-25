@@ -2,7 +2,7 @@ body, button, textarea {
     font-family: JetBrains Mono;
     background-color: #e5fdfb;
     margin: 0px;
-    font-size: 16px;
+    font-size: 18px;
     overflow-x: hidden;
 }
 
@@ -155,6 +155,7 @@ a {
     text-underline-offset: 3px;
     transition: 0.2s ease-out;
     padding-left: 0px;
+    white-space: nowrap;
 }
 
 h4 {
@@ -229,9 +230,13 @@ h4 {
 }
 
 .too-narrow {
-    height: 10vw;
     font-size: 8vw;
     display: none;
+}
+
+.too-narrow .small {
+    font-size: 4vw;
+    display: block;
 }
 
 @media only screen and (max-width: 950px) {
@@ -265,7 +270,7 @@ h4 {
     }
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 440px) {
     .menu, .content, .menu-gradient, .footer {
         display: none;
     }

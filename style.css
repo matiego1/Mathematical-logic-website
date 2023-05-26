@@ -239,6 +239,10 @@ h4 {
     display: block;
 }
 
+.very-narrow-br {
+    display: none;
+}
+
 @media only screen and (max-width: 950px) {
     .menu {
         padding-bottom: 50px;
@@ -271,6 +275,57 @@ h4 {
 }
 
 @media only screen and (max-width: 440px) {
+    body, button, textarea {
+        font-size: 10px;
+    }
+
+    .header {
+        font-size: 10vw;
+        padding: 20px 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .tabs {
+        display: none;
+    }
+
+    .menu {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    .input {
+        width: 90%;
+    }
+
+    .submit {
+        margin-bottom: 3px;
+        padding: 6px;
+    }
+
+    .very-narrow-br {
+        display: block;
+    }
+
+    ol {
+        padding-left: 18px;
+    }
+
+    ul {
+        padding-left: 5px
+    }
+
+    .example {
+        padding: 1px;
+    }
+
+    .footer {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 250px) {
     .menu, .content, .menu-gradient, .footer {
         display: none;
     }

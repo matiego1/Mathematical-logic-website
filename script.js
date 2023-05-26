@@ -1,3 +1,15 @@
+// kopiowanie klas "example"
+
+function copyElement(element) {
+    navigator.clipboard.writeText(element.value);
+
+    element.getElementById("copy-info").innerHTML = "Skopiowano: " + copyText.value;
+  }
+  
+  function outFunc(element) {
+    element.innerHTML = "Copy to clipboard";
+  }
+
 // obsługa linków
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

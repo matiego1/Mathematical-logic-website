@@ -155,7 +155,6 @@ a {
     text-underline-offset: 3px;
     transition: 0.2s ease-out;
     padding-left: 0px;
-    white-space: nowrap;
 }
 
 h4 {
@@ -239,10 +238,6 @@ h4 {
     display: block;
 }
 
-.very-narrow-br {
-    display: none;
-}
-
 @media only screen and (max-width: 950px) {
     .menu {
         padding-bottom: 50px;
@@ -276,12 +271,12 @@ h4 {
 
 @media only screen and (max-width: 440px) {
     body, button, textarea {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .header {
-        font-size: 10vw;
-        padding: 20px 20px;
+        font-size: 8vw;
+        padding: 15px;
         margin-top: 20px;
         margin-bottom: 20px;
     }
@@ -302,10 +297,6 @@ h4 {
     .submit {
         margin-bottom: 3px;
         padding: 6px;
-    }
-
-    .very-narrow-br {
-        display: block;
     }
 
     ol {

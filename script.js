@@ -44,6 +44,22 @@ addCollClickListener(document.getElementsByClassName("collapsible"), "coll-activ
 
 // obsługa sprawdzarki
 
+window.onload = function() {
+    window.addEventListener("beforeunload", function (e) {
+        var value = getTextArea().value;
+        console.log("[" + value + "]");
+        if (!value || !value.replace(/\s/g, "").length) {
+            return undefined;
+        }
+        
+        var confirmationMessage = 'Opuścić stronę? Wprowadzone zmiany mogą nie zostać zapisane.';
+
+        (e || window.event).returnValue = confirmationMessage;
+        return confirmationMessage;
+    });
+};
+
+
 function addButtonClickListener(id, f) {
     document.getElementById(id).addEventListener("click", f);
 }

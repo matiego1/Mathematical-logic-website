@@ -3,7 +3,6 @@ body, button, textarea {
     background-color: #e5fdfb;
     margin: 0px;
     font-size: 18px;
-    overflow-x: hidden;
 }
 
 .hcenter {
@@ -17,7 +16,6 @@ body, button, textarea {
 
     padding-top: 20px;
     padding-bottom: 100px;
-
 }
 
 .header {
